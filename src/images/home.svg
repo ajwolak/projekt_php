@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Warstwa_1" data-name="Warstwa 1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        stroke-width: 0px;
+      }
+    </style>
+  </defs>
+  <path id="Icon_core-home" data-name="Icon core-home" class="cls-1" d="M93.1,41.1L53,4.3c-2.7-2.5-6.9-2.4-9.5.2L6.7,41.3l-1.9,1.9v54.3h35.5v-33.9h19.4v33.9h35.5v-54.4l-2.1-1.9ZM48.4,9c0,0,0,0,0,0s0,0,0,0ZM88.7,91h-22.6v-27.4c0-3.6-2.9-6.5-6.4-6.5,0,0,0,0,0,0h-19.4c-3.6,0-6.5,2.9-6.5,6.5,0,0,0,0,0,0v27.4H11.3v-45.2L48.4,9.1h0l40.3,36.8v45.1Z"/>
+</svg>
