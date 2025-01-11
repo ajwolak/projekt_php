@@ -1,4 +1,5 @@
 <?php
+session_start();
 // jak ktoś jest zalogowany to przekieruj go na stronę główną
 // jak ktoś jest zalogowany to przekieruj go na stronę główną
 // jak ktoś jest zalogowany to przekieruj go na stronę główną
@@ -16,7 +17,7 @@
 
 <body>
     <div>
-        <form action="" method="POST">
+        <form action="/api/login/" method="POST">
             <div>
                 <div class="input-box">
                     <label for="login">Login:</label>
@@ -30,6 +31,15 @@
                 </div>
             </div>
             <div>
+                <?php
+                if (isset($_SESSION['loginError'])) {
+                    echo "<p>" . $_SESSION['loginError'] . "</p>";
+                    unset($_SESSION['loginError']);
+                }
+                ?>
+            </div>
+            <div>
+                <input type="hidden" name="action" value="loginToDashboard">
                 <button type="submit">Zaloguj</button>
             </div>
         </form>
