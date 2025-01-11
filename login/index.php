@@ -1,8 +1,8 @@
 <?php
 session_start();
-// jak ktoś jest zalogowany to przekieruj go na stronę główną
-// jak ktoś jest zalogowany to przekieruj go na stronę główną
-// jak ktoś jest zalogowany to przekieruj go na stronę główną
+if (isset($_SESSION['isLogged']) && $_SESSION['isLogged']) {
+    header("Location: /home/");
+}
 ?>
 
 
