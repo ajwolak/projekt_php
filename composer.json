@@ -1,0 +1,7 @@
+{
+    "name": "projekt/dashboard",
+    "description": "Panel aplikacji do zarządzania imporezami",
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    }
+}

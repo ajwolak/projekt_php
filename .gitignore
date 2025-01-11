@@ -1,1 +1,5 @@
 /htdocs
+/vendor/
+.env.*
+.env
+composer.lock
