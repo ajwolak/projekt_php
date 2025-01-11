@@ -5,15 +5,16 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 require_once(__DIR__ . '/../../vendor/autoload.php');
-
-require_once(__DIR__ . '/../mails/mail-registration.php');
+require_once(__DIR__ . '/../config.php');
+require_once(__DIR__ . '/db-connect.php');
+require_once(__DIR__ . '/mails/mail-registration.php');
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../../', ".env.development");
 $dotenv->load();
 $dotenv->required(['MAIL_USER', 'MAIL_PASS', 'MAIL_HOST']);
 
 
-function sendMail(array $address, string $subject, string $body,  string $copy_mail = '', string $sender_name = 'PartyPlanner',): void
+function sendMail(array $address, string $subject, string $body, string $sender_name, string $copy_mail = '',): void
 {
     foreach ($address as $adres) {
         $mail = new PHPMailer();

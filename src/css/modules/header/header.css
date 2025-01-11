@@ -1,0 +1,221 @@
+header {
+  position: absolute;
+  left: 0;
+  background: #f7f7f7;
+  display: flex;
+}
+
+header .headings {
+  float: left;
+  display: flex;
+  align-items: center;
+}
+
+header .headings .title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+header .heading-user-img {
+  width: 175px;
+  height: 105px;
+  margin: 10px 15px 0 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+}
+header .heading-user-img img {
+  width: 80%;
+  height: 80%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 6px;
+}
+
+header .load-action-response-element {
+  position: absolute;
+  z-index: 150;
+}
+
+header .load-action-response-element div {
+  overflow: hidden;
+}
+
+@media only screen and (max-width: 576px) {
+  header {
+    width: 100%;
+    padding: 0 20px;
+    height: 120px;
+  }
+  header .logo {
+    height: 120px;
+    width: 300px;
+    padding: 25px 0 0 0;
+  }
+  header .logo img {
+    width: 160px;
+    height: auto;
+  }
+
+  header .headings {
+    width: 100%;
+    margin-bottom: 15px;
+    padding-left: 50px;
+  }
+
+  header .headings h1 {
+    margin: 0 0 10px 0;
+  }
+
+  header .load-action-response-element {
+    bottom: 5px;
+    left: 20px;
+  }
+
+  header .load-action-response-element div {
+    width: calc(100% - 20px);
+    padding: 10px;
+  }
+}
+
+@media only screen and (min-width: 576px) {
+  header {
+    width: calc(100% - 100px);
+    padding: 0 50px;
+    height: 100px;
+  }
+
+  header .logo {
+    height: 120px;
+  }
+  header .logo img {
+    width: 160px;
+    height: auto;
+    margin-top: 25px;
+  }
+
+  header .headings {
+    width: 100%;
+    margin-bottom: 15px;
+    padding-left: 175px;
+  }
+
+  header .headings-tab {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+  }
+
+  header .headings .title .header-info span {
+    font-weight: bold;
+  }
+
+  header .headings-tab .img-box {
+    display: flex;
+  }
+  header .headings-tab .data-box .headings-tab-text {
+    display: none;
+  }
+
+  header .headings-tab .data-box .headings-tab-text.selected-tab {
+    display: block;
+  }
+
+  header .headings-tab div input[type="radio"] {
+    display: none;
+  }
+  header .headings-tab div.headings-tab-img {
+    background-color: #eef6ff;
+    width: 60px;
+    height: auto;
+    cursor: pointer;
+    border-radius: 15px 15px 0 0;
+    display: flex;
+    justify-content: center;
+  }
+  .headings-tab-img.active-tab-img {
+    background-color: white !important;
+  }
+
+  header .headings-tab div.headings-tab-text {
+    background-color: white;
+    padding: 10px;
+    border-radius: 0 0 15px 15px;
+  }
+
+  header .headings-tab .data-box .headings-tab-text .empty-data-heading {
+    color: red;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+  header .headings-tab img {
+    width: 24px;
+    align-self: center;
+    cursor: pointer;
+  }
+
+  header .headings h1 {
+    margin: 0 0 10px 0;
+  }
+
+  header .load-action-response-element {
+    top: 10px;
+    right: 10px;
+  }
+
+  header .load-action-response-element div {
+    width: calc(100% - 20px);
+    max-width: 200px;
+    padding: 10px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+}
+
+@media only screen and (min-width: 992px) {
+}
+
+@media only screen and (min-width: 1200px) {
+  header {
+    width: calc(100% - 100px);
+    padding: 0 50px;
+    height: 120px;
+  }
+
+  header .headings {
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  header .headings h1 {
+    margin: 0 0 10px 0;
+  }
+
+  header .load-action-response-element {
+    top: 20px;
+    right: 20px;
+  }
+
+  header .load-action-response-element div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 150px;
+    max-width: 700px;
+    padding: 20px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-box-shadow: 0px 0px 13px 0px rgba(76, 68, 68, 1);
+    -moz-box-shadow: 0px 0px 13px 0px rgba(76, 68, 68, 1);
+    box-shadow: 0px 0px 13px 0px rgba(76, 68, 68, 1);
+  }
+}

@@ -1,0 +1,309 @@
+a {
+  text-decoration: none;
+  width: fit-content;
+}
+
+nav {
+  position: fixed;
+  left: 0;
+  top: 120px;
+  float: left;
+  background: #f7f7f7;
+  float: left;
+  z-index: 99;
+  width: 180px;
+  height: calc(100vh - 120px);
+  display: flex;
+  flex-direction: column;
+  transition: 0.5s;
+}
+nav.toggled {
+  width: 75px;
+}
+
+nav .toggle-arrow {
+  position: absolute;
+  right: 0;
+  border-radius: 50px;
+  background-color: white;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  align-content: center;
+  border: 1px solid #3693eb;
+  cursor: pointer;
+  z-index: 999;
+  transition: 0.5s;
+}
+nav.toggled .toggle-arrow {
+  transform: rotate(180deg);
+  transition: 0.5s;
+}
+
+nav .toggle-arrow img {
+  width: 30px;
+}
+
+nav .group {
+  width: 100%;
+  height: calc(100% - 75px);
+  float: left;
+  overflow: auto;
+  overflow-x: hidden;
+  background: #3693eb;
+  border-top-right-radius: 95px;
+  padding-top: 85px;
+  box-sizing: border-box;
+}
+
+nav .group::-webkit-scrollbar {
+  display: none;
+}
+
+nav.toggled .group {
+  width: 100%;
+  transition: 0.6s;
+}
+
+nav .group::-webkit-scrollbar-thumb {
+  background: #2e7dc7;
+}
+
+nav .group div {
+  width: calc(100% - 20px);
+  padding: 0 0 0 20px;
+  float: left;
+  margin: 0 0 15px 0;
+}
+nav .group div .heading-box {
+  width: calc(100% - 45px);
+  margin: 0 0 0 20px;
+  text-align: start;
+  background-color: #3693eb;
+  padding: 10px 0;
+  word-wrap: break-word;
+  border-radius: 5px;
+  transition: 0.25s;
+  float: left;
+}
+nav .group div div p {
+  padding-left: 40px;
+  line-height: 25px;
+}
+
+nav .group div .image-box {
+  padding: 0;
+  margin: 0;
+  float: left;
+  width: fit-content;
+}
+
+nav.toggled .group div .heading-box {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  z-index: 999;
+  left: 94%;
+  margin: 0;
+  width: 175px;
+  height: 30px;
+  transition: none;
+  background: none;
+  box-shadow: none;
+}
+nav.toggled .group div .heading-box p {
+  background-color: #3693eb;
+  font-size: 15px !important;
+  border-radius: 25px;
+  -webkit-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+  -moz-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+nav.toggled .group div .image-box {
+  position: relative;
+}
+
+nav.toggled .group div .image-box:hover + .heading-box {
+  opacity: 1;
+  visibility: visible;
+  transition: 0.4s;
+}
+
+nav.toggled .group div .image-box:hover + .heading-box {
+  display: block;
+}
+
+.popup-container {
+  position: absolute;
+  top: 0;
+  left: 100px;
+  pointer-events: none;
+}
+.heading-box-popup {
+  position: absolute;
+  display: none;
+  width: 120px;
+  background-color: coral;
+  z-index: 1000;
+  white-space: nowrap;
+  padding: 5px;
+}
+
+nav .group div .image-box img {
+  width: 25px;
+  padding-top: 10px;
+}
+nav .group div .heading-box:hover,
+nav .group div .active-item {
+  background-color: rgb(247, 247, 247) !important;
+  width: calc(100% - 45px);
+  color: #3693eb !important;
+  border-radius: 25px 0px 0px 25px;
+  position: relative;
+}
+
+nav.toggled .group div .heading-box:hover,
+nav.toggled .group div .active-item {
+  display: none;
+  border-radius: unset;
+  color: white !important;
+  background-color: unset !important;
+}
+nav.toggled .group div .heading-box:hover p,
+nav.toggled .group div p {
+  padding-left: 10px;
+  font-size: 12px !important;
+}
+
+nav .group div .active-item::after,
+nav .group div .active-item::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  right: 0px;
+  width: 20px;
+  height: 20px;
+  border-radius: 0 0 25px 0;
+  box-shadow: 5px 5px 0 5px rgb(247, 247, 247);
+}
+
+nav .group div .active-item::before {
+  top: 45px;
+  border-radius: 0 25px 0 0;
+  box-shadow: 5px -6px 0 5px rgb(247, 247, 247);
+}
+
+nav.toggled .group div .active-item::before,
+nav.toggled .group div .active-item::after {
+  display: none;
+}
+
+nav.toggled .group div a {
+  display: flex;
+  flex-direction: row;
+  align-items: self-end;
+}
+
+nav.toggled .group .active-mark {
+  margin: unset;
+  padding: unset;
+  background-color: #f7f7f7;
+  position: relative;
+  z-index: 0;
+  border-radius: 21px;
+  height: 39px;
+  width: 40px;
+  top: 0px;
+  left: 19px;
+}
+
+nav.toggled .group div .active-item.image-box::before {
+  content: "";
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  width: 40px;
+  height: 20px;
+  background: white;
+  border-radius: 20px 20px 0 0;
+  transform: translateY(-50%);
+}
+
+nav .group div div:hover p,
+nav .group div .active-item p {
+  color: #3693eb !important;
+}
+nav.toggled .group div div:hover p,
+nav.toggled .group div .active-item p {
+  color: white !important;
+}
+
+nav .footer {
+  height: 75px;
+  width: 100%;
+  float: left;
+  display: flex;
+  background-color: #2e7dc7;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+nav.toggled .footer {
+  height: 125px;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+nav.toggled .footer div img {
+  width: 40%;
+}
+
+nav .footer div {
+  height: 100%;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  word-wrap: break-word;
+  position: relative;
+}
+
+nav.toggled .footer div {
+  width: 100%;
+}
+nav.toggled .footer div:hover {
+  filter: brightness(50%);
+}
+nav .footer div:nth-of-type(2):hover {
+  filter: brightness(75%);
+}
+
+nav .footer div img {
+  width: 20%;
+}
+
+@media only screen and (min-width: 576px) {
+}
+@media only screen and (min-width: 768px) {
+}
+
+@media only screen and (min-width: 992px) {
+}
+@media only screen and (max-width: 1199px) {
+  nav {
+    position: fixed;
+    top: 100px;
+    height: calc(100vh - 100px);
+  }
+}
+@media only screen and (min-width: 1200px) {
+  nav {
+    width: 330px;
+  }
+}

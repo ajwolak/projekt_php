@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Warstwa_1" data-name="Warstwa 1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #000;
+        stroke-width: 0px;
+      }
+    </style>
+  </defs>
+  <path id="Icon_material-outline-transit-enterexit" data-name="Icon material-outline-transit-enterexit" class="cls-1" d="M81.7,97.5H2.5V18.3h23.7v37.8L81.5,2.5l16,16.1-54.2,55.2h38.4v23.8Z"/>
+</svg>

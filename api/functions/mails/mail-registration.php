@@ -8,7 +8,7 @@ function mailRegistration(int $user_id, string $user_hash, string $user_name, st
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Party Planner - aktywacja konta</title>
+        <title>' . $GLOBALS['config_company_name'] . ' - aktywacja konta</title>
         <style>
             body {
                 margin: 0 auto;
@@ -61,19 +61,19 @@ function mailRegistration(int $user_id, string $user_hash, string $user_name, st
     <body>
         <div class="content">
             <div class="heading">
-                <a href="https://www.partyplanner.com.pl">Party Planner</a>
+                <a href="https://www.partyplanner.com.pl">' . $GLOBALS['config_company_name'] . '</a>
             </div>
             <div>
                 <h1>Cześć ' . $user_name . '</h1>
                 <p>Cieszymy się, że do nas dołączyłeś i postanowiłeś skorzystać z naszych usług!</p>
                 <p>Aby rozpocząć korzystanie z konta, prosimy o jego aktywację. Wystarczy, że klikniesz w poniższy przycisk:</p>
                 <br />
-                <a class="button" href="https://www.partyplanner.com.pl/login/?action=activeAccount&id=' . $user_id . '&token=' . urldecode($user_hash) . '">Aktywuj konto </a>
+                <a class="button" href="https://www.partyplanner.com.pl/login/?action=activeAccount&id=' . $user_id . '&token=' . urlencode($user_hash) . '">Aktywuj konto </a>
                 <br />
                 <br />
 
                 <p>Dziękujemy za zaufanie! <br />W razie jakichkolwiek pytań, skontaktuj się z naszym zespołem wsparcia.</p>
-                <p>Pozdrawiamy,<br>Zespół Party Planner</p>
+                <p>Pozdrawiamy,<br>Zespół ' . $GLOBALS['config_company_name'] . '</p>
             </div>
         </div>
     </body>
@@ -81,5 +81,5 @@ function mailRegistration(int $user_id, string $user_hash, string $user_name, st
     </html>
     ';
 
-    sendMail([$user_mail], "Party Planner - aktywacja konta", $body);
+    sendMail([$user_mail], $GLOBALS['config_company_name'] . " - aktywacja konta", $body, $GLOBALS['config_company_name']);
 }
