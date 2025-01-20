@@ -15,6 +15,8 @@ require(__DIR__ . '/../src/modules/header/header.php');
 require(__DIR__ . '/../src/modules/navigation/navigation.php');
 ?>
 
+<body>
+    <section></section>
 
 </body>
 
