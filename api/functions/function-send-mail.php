@@ -14,7 +14,7 @@ $dotenv->load();
 $dotenv->required(['MAIL_USER', 'MAIL_PASS', 'MAIL_HOST']);
 
 
-function sendMail(array $address, string $subject, string $body, string $sender_name, string $copy_mail = '',): void
+function sendMail(array $address, string $subject, string $body, string $sender_name, string $copy_mail = ''): void
 {
     foreach ($address as $adres) {
         $mail = new PHPMailer();
