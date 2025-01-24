@@ -32,6 +32,13 @@
   margin-right: 25px;
 }
 .add-event form .box-separate {
+  display: flex;
+  flex-direction: row;
+}
+.add-event form .box-separate div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 .add-event .text-input {
   width: 25%;
@@ -39,7 +46,7 @@
   border-radius: 12px;
 }
 .add-event .text-area-input {
-  width: 50%;
+  width: 98%;
   border-radius: 12px;
   height: 150px;
 }
