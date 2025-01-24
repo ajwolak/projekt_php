@@ -20,8 +20,15 @@ require(__DIR__ . '/../api/functions/user/user-check-events.php');
 <body>
     <section class="content bg-color-white-little-dark">
         <?php
-        if (userCheckEvent()) require(__DIR__ . '/event-add.php');
-        else require(__DIR__ . '/event-list.php');
+        if (userCheckEvent()) {
+            require(__DIR__ . '/event-add.php');
+        } else {
+            if ($_GET['list'] == 'info') {
+                require(__DIR__ . '/event-info.php');
+            } else {
+                require(__DIR__ . '/event-list.php');
+            }
+        }
         ?>
     </section>
 

@@ -1,6 +1,6 @@
 <?php
 
-function userCheckEvent()
+function userCheckEvent(): bool
 {
     $sql = "SELECT * FROM events_list WHERE userId = ?;";
     $stmt = $GLOBALS['link']->prepare($sql);

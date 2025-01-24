@@ -22,7 +22,7 @@ require(__DIR__ . '/../src/modules/navigation/navigation.php');
             <div class="event-add-title">
                 <h2>Nie masz jeszcze eventu? Utwórz event!</h2>
             </div>
-            <div class="event-add-action" onclick="window.location.href='/events'">
+            <div class="event-add-action" onclick="window.location.href='/events/'">
                 <div>
                     <img src="/src/images/add.png">
                 </div>
