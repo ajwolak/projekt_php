@@ -1,11 +1,11 @@
 <?php
-// ini_set('display_errors', 0);
-// ini_set('display_startup_errors', 0);
-// error_reporting(0);
+ini_set('display_errors', 0);
+ini_set('display_startup_errors', 0);
+error_reporting(0);
 
 //logowanie błędów do pliku
-// ini_set('log_errors', 1);
-// ini_set('error_log', __DIR__ . '/../../errors.log');
+ini_set('log_errors', 1);
+ini_set('error_log', __DIR__ . '/../../errors.log');
 //logowanie błędów do pliku
 
 require_once(__DIR__ . '/../../vendor/autoload.php');
@@ -23,17 +23,17 @@ function returnError(\Throwable $th, string $message): void
 }
 
 //funkcja rejestruje fatal error i zwraca json
-// register_shutdown_function(function () {
-//     $error = error_get_last();
-//     if ($error && ($error['type'] === E_ERROR || $error['type'] === E_PARSE || $error['type'] === E_CORE_ERROR || $error['type'] === E_COMPILE_ERROR)) {
-//         echo json_encode([
-//             'status' => 500,
-//             'error' => "File: " .  $error['file'] . ' \n Line: ' . $error['line'],
-//             'message' => "Wystąpił błąd."
-//         ]);
-//         exit();
-//     }
-// });
+register_shutdown_function(function () {
+    $error = error_get_last();
+    if ($error && ($error['type'] === E_ERROR || $error['type'] === E_PARSE || $error['type'] === E_CORE_ERROR || $error['type'] === E_COMPILE_ERROR)) {
+        echo json_encode([
+            'status' => 500,
+            'error' => "File: " .  $error['file'] . ' \n Line: ' . $error['line'],
+            'message' => "Wystąpił błąd."
+        ]);
+        exit();
+    }
+});
 
 
 try {
