@@ -1,6 +1,5 @@
 <link rel="stylesheet" type="text/css" href="/src/css/modules/navigation/navigation.css?lmod=<?php echo filemtime($_SERVER['DOCUMENT_ROOT'] . '/src/css/modules/navigation/navigation.css'); ?>" />
 <?php
-session_start();
 $file_name = explode("/", $_SERVER['PHP_SELF']);
 $nav = [
     'home'  => [

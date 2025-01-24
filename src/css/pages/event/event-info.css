@@ -1,0 +1,83 @@
+.event-info {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 70px;
+}
+
+.information {
+  width: calc(100% - 30px);
+  padding: 15px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.information div p {
+  margin-bottom: 10px;
+  font-size: 15px;
+  border-bottom: 2px solid #3693eb;
+  width: fit-content;
+  padding-bottom: 3px;
+}
+.information div p + p {
+  margin: 0;
+  font-size: 18px;
+  border: 0;
+}
+.invation-form .header,
+.guest-list .header,
+.information .header {
+  width: 100%;
+  margin-bottom: 20px;
+  flex-basis: 100%;
+  flex-grow: 1;
+  text-align: left;
+}
+
+.guest-list .absolute-img,
+.information .absolute-img {
+  position: absolute;
+  z-index: 1;
+  top: -20px;
+  right: -20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background-color: white;
+  border: 2px solid #3693eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+.guest-list .absolute-img img,
+.information .absolute-img img {
+  width: 50%;
+  height: auto;
+}
+.invation-form,
+.guest-list {
+  width: calc(100% - 30px);
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  display: flex;
+  padding: 15px;
+  position: relative;
+}
+.invation-form {
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  column-gap: 20px;
+  row-gap: 20px;
+}

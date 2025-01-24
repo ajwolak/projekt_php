@@ -16,6 +16,7 @@ p {
   margin: 0;
   padding: 0;
 }
+
 a,
 a:link,
 a:visited,
@@ -330,91 +331,69 @@ section.content {
   position: relative;
   overflow: auto;
 }
-
-section.content .content-single-section {
-  overflow: hidden;
-}
-
-section.content .content-single-section:last-child {
-  margin-bottom: 0;
-}
-
-section.content .content-single-section .content-list-single-item {
-  width: 100%;
-  float: left;
-  transition: 0.3s;
-  border-bottom: 1px solid #ddd;
-}
-
-section.content .content-single-section .content-list-single-item:last-child {
-  margin-bottom: 0;
-}
-
-section.content .content-single-section .content-list-single-item div {
-  margin: 0;
-  float: left;
-  overflow-wrap: break-word;
-}
-
-section.content
-  .content-single-section
-  .content-list-single-item
-  div
-  img:hover {
-  background-color: #ddd;
-}
-
-section.content .content-single-section .content-list-single-item div img {
-  float: right;
-  transition: 0.3s;
-}
-
-section.content
-  .content-single-section
-  .content-list-single-item
-  div.list-single-item-body
-  .item {
-  width: 100%;
-  float: left;
-}
-
-section.content
-  .content-single-section
-  .content-list-single-item
-  div.list-single-item-body
-  .item:hover {
-  background-color: #e9e9e9;
-}
-
-.checkboxes {
-  border: 1px #dadada solid;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  column-gap: 10px;
-  row-gap: 10px;
-}
-
-.checkboxes label {
-  width: calc((100% - 20px) / 3);
-  display: block;
-}
-
-.checkboxes label:hover {
-  background-color: var(--main-theme-color);
-}
 /** Content */
 
+/** Global input box */
+.global-input-box {
+  position: relative;
+  padding: 20px 0 0;
+  width: 300px;
+  max-width: 400px;
+}
+
+.global-input-box input {
+  font-family: inherit;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #9b9b9b;
+  outline: 0;
+  font-size: 17px;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+
+.global-input-box input::placeholder {
+  color: transparent;
+}
+
+.global-input-box input:placeholder-shown ~ label {
+  font-size: 17px;
+  cursor: text;
+  top: 20px;
+}
+
+.global-input-box label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 17px;
+  color: #9b9b9b;
+  pointer-events: none;
+}
+
+.global-input-box input:focus {
+  padding-bottom: 6px;
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, #2e7dc7, #3693eb);
+  border-image-slice: 1;
+}
+
+.global-input-box input:focus ~ label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 17px;
+  color: #38caef;
+  font-weight: 700;
+}
+
+/** Global input box */
+
 @media only screen and (max-width: 576px) {
-  h1 {
-    font-size: 20px;
-  }
-
-  button {
-    font-size: 14px;
-  }
-
   /** Content */
   section.content {
     top: 120px;
@@ -423,71 +402,10 @@ section.content
     height: calc(100vh - 220px);
     padding: 50px;
   }
-
-  section.content .content-single-section {
-    width: calc(100% - 42px);
-    padding: 20px;
-    margin-bottom: 20px;
-  }
-
-  section.content .content-single-section div input,
-  section.content .content-single-section div select {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin: 10px 0;
-  }
-
-  section.content .content-single-section .content-list-single-item {
-    margin-bottom: 15px;
-  }
-
-  section.content .content-single-section .content-list-single-item div {
-    width: 100%;
-    min-height: 30px;
-    padding: 5px 0;
-  }
-
-  section.content
-    .content-single-section
-    .content-list-single-item
-    div
-    p:first-child {
-    font-size: 12px;
-    font-weight: 500;
-  }
-
-  section.content
-    .content-single-section
-    .content-list-single-item
-    div
-    p:last-child {
-    font-size: 14px;
-    font-weight: 700;
-  }
-
-  section.content .content-single-section .content-list-single-item div img {
-    width: 15px;
-    height: 15px;
-    padding: 7px;
-    margin-left: 10px;
-  }
-
   /** Content */
 }
 
 @media only screen and (min-width: 576px) {
-  h1 {
-    font-size: 20px;
-  }
-
-  p {
-    font-size: 12px;
-  }
-
-  button {
-    font-size: 14px;
-  }
-
   /** Content */
   section.content {
     top: 100px;
@@ -495,54 +413,6 @@ section.content
     width: calc(100% - 280px);
     height: calc(100vh - 200px);
     padding: 50px;
-  }
-
-  section.content .content-single-section {
-    width: calc(100% - 42px);
-    padding: 20px;
-    margin-bottom: 20px;
-  }
-
-  section.content .content-single-section div input,
-  section.content .content-single-section div select {
-    width: calc(50% - 20px);
-    padding: 10px;
-    margin: 10px 0;
-  }
-
-  section.content .content-single-section .content-list-single-item {
-    margin-bottom: 15px;
-  }
-
-  section.content .content-single-section .content-list-single-item div {
-    width: 33.33%;
-    min-height: 30px;
-    padding: 5px 0;
-  }
-
-  section.content
-    .content-single-section
-    .content-list-single-item
-    div
-    p:first-child {
-    font-size: 12px;
-    font-weight: 500;
-  }
-
-  section.content
-    .content-single-section
-    .content-list-single-item
-    div
-    p:last-child {
-    font-size: 14px;
-    font-weight: 700;
-  }
-
-  section.content .content-single-section .content-list-single-item div img {
-    width: 15px;
-    height: 15px;
-    padding: 7px;
-    margin-left: 10px;
   }
 
   /** Content */
@@ -555,18 +425,6 @@ section.content
 }
 
 @media only screen and (min-width: 1200px) {
-  h1 {
-    font-size: 30px;
-  }
-
-  p {
-    font-size: 16px;
-  }
-
-  button {
-    font-size: 16px;
-  }
-
   /** Content */
   section.content {
     top: 120px;
