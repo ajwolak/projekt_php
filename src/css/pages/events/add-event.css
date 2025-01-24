@@ -1,0 +1,54 @@
+.add-event {
+  background-color: white;
+  border-radius: 12px;
+  width: calc(100% - 30px);
+  padding: 15px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+.add-event h1 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.add-event form {
+  display: flex;
+  flex-direction: column;
+}
+.add-event form * {
+  margin: 15px 0;
+}
+.add-event form .input-box-2 {
+  display: flex;
+  flex-direction: row;
+}
+.add-event form .input-box-2 div {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+}
+.add-event form .input-box-2 div label {
+  margin-right: 25px;
+}
+.add-event form .box-separate {
+}
+.add-event .text-input {
+  width: 25%;
+  height: 50px;
+  border-radius: 12px;
+}
+.add-event .text-area-input {
+  width: 50%;
+  border-radius: 12px;
+  height: 150px;
+}
+.add-event .date-input {
+  width: 15%;
+  border-radius: 12px;
+  height: 50px;
+}
+.add-event .form-submit {
+  background-color: #2e7dc7;
+  color: white;
+}
