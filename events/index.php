@@ -4,9 +4,15 @@ if (!isset($_SESSION['isLogged']) || !$_SESSION['isLogged']) {
     header("Location: /login/");
 }
 
-$page_title = "Twoje wydarzenia";
-$header_heading = "Twoje wydarzenia";
-$header_under_heading = "Lista";
+if ($_GET['list'] == 'info') {
+    $page_title = "Informacje";
+    $header_heading = "Szczegóły wydarzenia";
+    $header_under_heading = "Zobacz najważniejsze informacje";
+} else {
+    $page_title = "Twoje wydarzenia";
+    $header_heading = "Twoje wydarzenia";
+    $header_under_heading = "Lista";
+}
 
 require(__DIR__ . '/../api/config.php');
 require(__DIR__ . '/../api/functions/db-connect.php');

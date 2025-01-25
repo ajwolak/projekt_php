@@ -18,11 +18,12 @@ if (isset($_POST['action'])) {
         $stmt3->bind_param('sss', $name, $descriptionGuest, $descriptionOwn);
 
         if ($stmt3->execute()) {
-            header('Location: /event/?list=info');
+            $eventId = $stmt3->insert_id;
+            header('Location: /event/?list=info&eventId=' . $eventId);
             exit();
         } else {
             $_SESSION['addError'] = 'Wystąpił błąd podczas dodawania. Spróbuj ponownie.';
-            header('Location: /event/?list=add');
+            header('Location: /events/?list=add');
             exit();
         }
     }

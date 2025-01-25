@@ -2,7 +2,7 @@
 <link rel="stylesheet" type="text/css" href="/src/css/modules/skeletons/system-global-loader.css?lmod=<?= filemtime($_SERVER['DOCUMENT_ROOT'] . '/src/css/modules/skeletons/system-global-loader.css'); ?>">
 <header>
     <div class="logo">
-        <img src="" alt="">
+        <img src="/src/images/logo-transparent.png?lmod=<?= filemtime($_SERVER['DOCUMENT_ROOT'] . '/src/images/logo-transparent.png') ?>" alt="">
     </div>
     <div class="headings">
         <div class="title">

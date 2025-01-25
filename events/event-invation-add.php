@@ -3,7 +3,7 @@
         <h3>Zaproszenie nr 1</h3>
     </div>
     <div id="guestsBox" class="guests-box">
-        <div class="invation-box">
+        <div class="invation-box invation-form-item">
             <div class="header">
                 <h3>Gość nr 1</h3>
             </div>

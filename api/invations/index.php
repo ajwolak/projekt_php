@@ -18,7 +18,7 @@ if (isset($_POST['action'])) {
             $invationId = $scr->insert_id;
 
             foreach ($invations as $invation) {
-                $sql = "INSERT INTO invited_guests(id, eventId, invationID, name, surname, idKid, email, phone, sex, description, isAccepted, notes) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, '');";
+                $sql = "INSERT INTO invited_guests(id, eventId, invationId, name, surname, isKid, email, phone, sex, description, isAccepted, notes) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, '');";
                 $scr = $GLOBALS['link']->prepare($sql);
                 $scr->bind_param("iississisi", $event_id, $invationId, $invation['name'], $invation['surname'], $invation['isKid'], $invation['email'], $invation['phone'], $invation['sex'], $invation['description'], $invation['isAccepted']);
                 $scr->execute();
