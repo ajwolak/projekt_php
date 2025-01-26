@@ -7,8 +7,6 @@
   padding: 15px;
   margin-bottom: 25px;
   cursor: pointer;
-  position: sticky;
-  top: 0;
 }
 .event-list .event-container {
   background-color: white;

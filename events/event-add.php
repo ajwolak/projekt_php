@@ -1,3 +1,9 @@
+<?php
+isset($_GET['eventId']) ? $eventData = eventDownload($_GET['eventId']) : $eventData = '';
+$eventData != '' ? $eventDataLoc = locationDownload($_GET['eventId']) : $eventDataLoc = '';
+
+?>
+
 <link rel="stylesheet" href="/src/css/pages/events/add-event.css">
 <div class="add-event">
     <h1 class="event-title">Dodaj wydarzenie</h1>
@@ -9,7 +15,8 @@
                     required
                     name="name"
                     class="text-input"
-                    type="text" />
+                    type="text"
+                    value="" />
             </div>
             <div>
                 <label><b>Czas do którego można potwierdzić udział:</b></label>
@@ -31,7 +38,7 @@
             </div>
         </div>
         <div id="place-box" class="place">
-            <h3 class="location-title">Lokalizacja 1</h3>
+            <h3 class="location-title">Lokalizacja</h3>
             <div class="input-box-2">
                 <div>
                     <label><b>Nazwa:</b></label>
@@ -63,7 +70,7 @@
                     <label><b>Miasto:</b></label>
                     <input
                         required
-                        name="name"
+                        name="city"
                         class="text-input"
                         type="text" />
                 </div>
@@ -74,7 +81,7 @@
                     <label><b>Kod pocztowy:</b></label>
                     <input
                         required
-                        name="dateMax"
+                        name="postCode"
                         class="date-input"
                         type="text" />
                 </div>
@@ -82,7 +89,7 @@
                     <label><b>Miejscowość/ulica i numer:</b></label>
                     <input
                         required
-                        name="name"
+                        name="street"
                         class="text-input"
                         type="text" />
                 </div>
