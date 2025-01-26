@@ -19,7 +19,25 @@ if (isset($_POST['action'])) {
 
         if ($stmt3->execute()) {
             $eventId = $stmt3->insert_id;
-            header('Location: /event/?list=info&eventId=' . $eventId);
+        } else {
+            $_SESSION['addError'] = 'Wystąpił błąd podczas dodawania. Spróbuj ponownie.';
+            header('Location: /events/?list=add');
+            exit();
+        }
+        $locationName = $_POST['locationName'];
+        $locationDate = $_POST['locationDate'];
+        $country = $_POST['country'];
+        $city = $_POST['city'];
+        $postCode = $_POST['postCode'];
+        $street = $_POST['street'];
+
+
+        $sql4 = "INSERT INTO events_locations (id, eventId, street, zipCode, town, country, name, date) VALUES (NULL,$eventId,?,?,?,?,?,'$locationDate');";
+        $stmt4 = $GLOBALS['link']->prepare($sql4);
+        $stmt4->bind_param('sssss', $street, $postCode, $city, $country, $locationName);
+
+        if ($stmt4->execute()) {
+            header('Location: /events/?list=info&eventId=' . $eventId);
             exit();
         } else {
             $_SESSION['addError'] = 'Wystąpił błąd podczas dodawania. Spróbuj ponownie.';

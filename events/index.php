@@ -22,6 +22,7 @@ require(__DIR__ . '/../src/modules/navigation/navigation.php');
 require(__DIR__ . '/../api/functions/user/user-check-events.php');
 require(__DIR__ . '/../api/functions/event/function-event-download.php');
 require(__DIR__ . '/../api/functions/event/function-event-collect.php');
+require(__DIR__ . '/../api/functions/event/function-location-download.php');
 
 ?>
 
