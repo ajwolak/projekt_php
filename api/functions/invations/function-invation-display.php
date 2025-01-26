@@ -15,10 +15,6 @@ foreach (invationsCollect($_GET['eventId'], 'DESC') as $invation_id) {
             <div class="header">
                 <h3>Zaproszenie nr ' . ($i++) . '</h3>
                 <div class="actions">
-                    <div class="action-box">
-                        <img src="/src/images/icon-edit-pen-black.png?lmod=' . filemtime($_SERVER['DOCUMENT_ROOT'] . '/src/images/icon-edit-pen-black.png') . '">
-                        <div class="tip">Edytuj</div>
-                    </div>
                     <div class="action-box" onclick="deleteInvation(' . $invation_id . ')">
                         <img src="/src/images/icon-bin-black.png?lmod=' . filemtime($_SERVER['DOCUMENT_ROOT'] . '/src/images/icon-bin-black.png') . '">
                         <div class="tip">Usuń zaproszenie</div>

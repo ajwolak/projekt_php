@@ -21,7 +21,6 @@ async function addInvationToDb() {
     });
     invations.push(invation);
   });
-  console.log(invations);
   const res = await fetchApi(
     "/api/invations/",
     {
@@ -37,7 +36,7 @@ async function addInvationToDb() {
     showAddInvationForm(false);
   } else {
     alert(resJson.message);
-    console.log(resJson.error);
+    console.error(resJson.error);
   }
 }
 
@@ -74,7 +73,7 @@ async function showAddInvationForm(bool) {
 }
 
 async function deleteInvation(id) {
-  const res = fetchApi(
+  const res = await fetchApi(
     "/api/invations/",
     {
       action: "deleteInvation",

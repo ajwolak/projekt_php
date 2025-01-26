@@ -82,9 +82,10 @@ if (isset($_POST['action'])) {
             $scr = $GLOBALS['link']->prepare($sql);
             $scr->execute();
 
-            $sql2 = "DELETE FROM invited_guests WHERE WHERE invationId = '" . $_POST['invationId'] . "' AND eventId = '" . $_POST['eventId'] . "';";
+            $sql2 = "DELETE FROM invited_guests WHERE  invationId = '" . $_POST['invationId'] . "' AND eventId = '" . $_POST['eventId'] . "';";
             $scr2 = $GLOBALS['link']->prepare($sql2);
-            $scr->execute();
+            $scr2->execute();
+            echo json_encode(["status" => 200]);
         } catch (\Throwable $th) {
             returnError($th, 'Błąd przy usuwaniu zaproszenia');
         }
