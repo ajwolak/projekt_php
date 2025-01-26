@@ -45,4 +45,47 @@ if (isset($_POST['action'])) {
             exit();
         }
     }
+    if ($_POST['action'] == 'updateEvent') {
+        // print("<pre>" . print_r($_POST, true) . "</pre>");
+        $userId = $_SESSION['userId'];
+        $eventId = $_POST['eventIdUpdate'];
+        $name = $_POST['name'];
+        $dateMax = $_POST['dateMax'];
+        $descriptionGuest = $_POST['descriptionGuest'] ?? '';
+        $descriptionOwn = $_POST['descriptionOwn'] ?? '';
+
+        $sql3 = "UPDATE events_list 
+                 SET name = ?, guestDescription = ?, userDescription = ?, maxAcceptDate = ?
+                 WHERE id = ? AND userId = ?;";
+        $stmt3 = $GLOBALS['link']->prepare($sql3);
+        $stmt3->bind_param('ssssii', $name, $descriptionGuest, $descriptionOwn, $dateMax, $eventId, $userId);
+
+        if (!$stmt3->execute()) {
+            $_SESSION['updateError'] = 'Wystąpił błąd podczas aktualizacji wydarzenia. Spróbuj ponownie.';
+            header('Location: /events/?list=edit&eventId=' . $eventId);
+            exit();
+        }
+
+        $locationName = $_POST['locationName'];
+        $locationDate = $_POST['locationDate'];
+        $country = $_POST['country'];
+        $city = $_POST['city'];
+        $postCode = $_POST['postCode'];
+        $street = $_POST['street'];
+
+        $sql4 = "UPDATE events_locations 
+                 SET street = ?, zipCode = ?, town = ?, country = ?, name = ?, date = ?
+                 WHERE eventId = ?;";
+        $stmt4 = $GLOBALS['link']->prepare($sql4);
+        $stmt4->bind_param('ssssssi', $street, $postCode, $city, $country, $locationName, $locationDate, $eventId);
+
+        if ($stmt4->execute()) {
+            header('Location: /events/?list=info&eventId=' . $eventId);
+            exit();
+        } else {
+            $_SESSION['updateError'] = 'Wystąpił błąd podczas aktualizacji lokalizacji. Spróbuj ponownie.';
+            header('Location: /events/?list=edit&eventId=' . $eventId);
+            exit();
+        }
+    }
 }

@@ -1,7 +1,17 @@
 <?php
-isset($_GET['eventId']) ? $eventData = eventDownload($_GET['eventId']) : $eventData = '';
-$eventData != '' ? $eventDataLoc = locationDownload($_GET['eventId']) : $eventDataLoc = '';
-
+$textButton = isset($_GET['eventId']) ? 'Aktualizuj' : 'Dodaj';
+$eventId = isset($_GET['eventId']) ? $_GET['eventId'] : '';
+$exist = isset($_GET['eventId']) ? 'updateEvent' : 'addNewEvent';
+$name = isset($_GET['eventId']) ? eventDownload($_GET['eventId'])['name'] : '';
+$date = isset($_GET['eventId']) ? substr(eventDownload($_GET['eventId'])['max_accept_date'], 0, 10) : '';
+$guestDescription = isset($_GET['eventId']) ? eventDownload($_GET['eventId'])['guest_description'] : '';
+$userDescription = isset($_GET['eventId']) ? eventDownload($_GET['eventId'])['user_description'] : '';
+$locationName = isset($_GET['eventId']) ? locationDownload($_GET['eventId'])['name'] : '';
+$locationDate = isset($_GET['eventId']) ? substr(locationDownload($_GET['eventId'])['date'], 0, 10) : '';
+$country = isset($_GET['eventId']) ? locationDownload($_GET['eventId'])['country'] : '';
+$town = isset($_GET['eventId']) ? locationDownload($_GET['eventId'])['town'] : '';
+$zipCode = isset($_GET['eventId']) ? locationDownload($_GET['eventId'])['zip_code'] : '';
+$street = isset($_GET['eventId']) ? locationDownload($_GET['eventId'])['street'] : '';
 ?>
 
 <link rel="stylesheet" href="/src/css/pages/events/add-event.css">
@@ -16,7 +26,7 @@ $eventData != '' ? $eventDataLoc = locationDownload($_GET['eventId']) : $eventDa
                     name="name"
                     class="text-input"
                     type="text"
-                    value="" />
+                    value="<?= htmlspecialchars($name) ?>" />
             </div>
             <div>
                 <label><b>Czas do którego można potwierdzić udział:</b></label>
@@ -24,17 +34,18 @@ $eventData != '' ? $eventDataLoc = locationDownload($_GET['eventId']) : $eventDa
                     required
                     name="dateMax"
                     class="date-input"
-                    type="date" />
+                    type="date"
+                    value="<?= htmlspecialchars($date) ?>" />
             </div>
         </div>
         <div class="box-separate">
             <div>
                 <label><b>Opis dla gości:</b></label>
-                <textarea class="text-area-input" name="descriptionGuest" id="text-area-gues"></textarea>
+                <textarea class="text-area-input" name="descriptionGuest" id="text-area-gues"><?= htmlspecialchars($guestDescription) ?></textarea>
             </div>
             <div>
                 <label><b>Uwagi własne:</b></label>
-                <textarea class="text-area-input" name="descriptionOwn" id="text-area-own"></textarea>
+                <textarea class="text-area-input" name="descriptionOwn" id="text-area-own"><?= htmlspecialchars($userDescription) ?></textarea>
             </div>
         </div>
         <div id="place-box" class="place">
@@ -46,7 +57,8 @@ $eventData != '' ? $eventDataLoc = locationDownload($_GET['eventId']) : $eventDa
                         required
                         name="locationName"
                         class="date-input"
-                        type="text" />
+                        type="text"
+                        value="<?= htmlspecialchars($locationName) ?>" />
                 </div>
                 <div>
                     <label><b>Data:</b></label>
@@ -54,7 +66,8 @@ $eventData != '' ? $eventDataLoc = locationDownload($_GET['eventId']) : $eventDa
                         required
                         name="locationDate"
                         class="text-input"
-                        type="date" />
+                        type="date"
+                        value="<?= htmlspecialchars($locationDate) ?>" />
                 </div>
             </div>
             <div class="input-box-2">
@@ -64,7 +77,8 @@ $eventData != '' ? $eventDataLoc = locationDownload($_GET['eventId']) : $eventDa
                         required
                         name="country"
                         class="date-input"
-                        type="text" />
+                        type="text"
+                        value="<?= htmlspecialchars($country) ?>" />
                 </div>
                 <div>
                     <label><b>Miasto:</b></label>
@@ -72,7 +86,8 @@ $eventData != '' ? $eventDataLoc = locationDownload($_GET['eventId']) : $eventDa
                         required
                         name="city"
                         class="text-input"
-                        type="text" />
+                        type="text"
+                        value="<?= htmlspecialchars($town) ?>" />
                 </div>
 
             </div>
@@ -83,7 +98,8 @@ $eventData != '' ? $eventDataLoc = locationDownload($_GET['eventId']) : $eventDa
                         required
                         name="postCode"
                         class="date-input"
-                        type="text" />
+                        type="text"
+                        value="<?= htmlspecialchars($zipCode) ?>" />
                 </div>
                 <div>
                     <label><b>Miejscowość/ulica i numer:</b></label>
@@ -91,17 +107,19 @@ $eventData != '' ? $eventDataLoc = locationDownload($_GET['eventId']) : $eventDa
                         required
                         name="street"
                         class="text-input"
-                        type="text" />
+                        type="text"
+                        value="<?= htmlspecialchars($street) ?>" />
                 </div>
 
             </div>
         </div>
-        <input type="hidden" name="action" value="addNewEvent">
+        <input type="hidden" name="action" value="<?= htmlspecialchars($exist) ?>">
+        <input type="hidden" name="eventIdUpdate" value="<?= htmlspecialchars($eventId) ?>">
         <button
 
             class="form-submit"
             type="submit">
-            <b>Dodaj</b>
+            <b><?= $textButton ?></b>
         </button>
     </form>
 </div>
