@@ -17,11 +17,6 @@
         ?>
     </div>
 </header>
-<div id="systemGlobalLoader" class="system-global-popup" style="display: none;">
-    <?php
-    require(__DIR__ . '/../skeletons/system-global-loader.php');
-    ?>
-</div>
 
 <script>
     if (paramDownload("responseMessageOk") != undefined || paramDownload("responseMessageErr") != undefined) {
