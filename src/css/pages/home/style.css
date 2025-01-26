@@ -41,10 +41,38 @@
 }
 
 .section .chart-box {
-  width: 50%;
+  width: 55%;
   min-height: 200px;
   background-color: white;
   border-radius: 12px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
   overflow: hidden;
+}
+
+.section .card-box {
+  width: 44%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  height: min-content;
+  row-gap: 20px;
+}
+.section .card-box .card {
+  width: calc(48% - 20px);
+  padding: 10px;
+  background-color: white;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 12px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.section .card-box .card img {
+  width: 100px;
+  height: auto;
 }

@@ -41,7 +41,7 @@
             </div>
             <div class="global-input-box">
                 <select name="isAccepted">
-                    <option value="0">Nie potwierdził / ła obecność / i</option>
+                    <option value="2">Do potwierdzenia</option>
                     <option value="1">Potwierdził / ła obecność</option>
                 </select>
             </div>

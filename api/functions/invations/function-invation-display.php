@@ -35,13 +35,20 @@ foreach (invationsCollect($_GET['eventId'], 'DESC') as $invation_id) {
                 ';
     foreach (guestCollect($_GET['eventId'], $invation_id) as $guest_id) {
         $guest_info = guestDownload($guest_id);
+        if ($guest_info['is_accepted'] == 0) {
+            $status = '<span class="font-color-red">Nie</span>';
+        } else if ($guest_info['is_accepted'] == 1) {
+            $status = '<span class="font-color-green">Tak</span>';
+        } else {
+            $status = 'Nie potiwerdzono';
+        }
         $body .= '
             <tr>
                 <td>' . $guest_info['name'] . ' ' . $guest_info['surname'] . '</td>
                 <td>' . $guest_info['email'] . '</td>
                 <td>' . $guest_info['phone'] . '</td>
                 <td>' . $guest_info['description'] . '</td>
-                <td>' . ($guest_info['is_accepted'] == 0 ? '<span class="font-color-red">Nie</span>' : '<span class="font-color-green">Tak</span>') . '</td>
+                <td>' . $status . '</td>
                 <td>' . $guest_info['notes'] . '</td>
             </tr>
         ';
