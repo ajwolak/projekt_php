@@ -45,30 +45,19 @@ $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
 
 $pdf->AddPage();
 
-$qr_style = array(
-    'border' => false,
-    'padding' => 0,
-    'fgcolor' => array(0, 0, 0),
-    'bgcolor' => false
-);
+$sql = "SELECT id FROM invited_guests WHERE eventId = $event_id AND isAccepted = 1;";
+$scr = $GLOBALS['link']->prepare($sql);
+$scr->execute();
+$res = $scr->get_result();
 
-$i = 1;
-foreach ($invations as $invation) {
-    $pdf->Ln(10);
-    $guest = guestCollect($event_id, $invation);
-    $y_position = $pdf->GetY();
-    $pdf->SetFont('DejaVuSansCondensed', 'B', 18);
-    $pdf->Ln(3);
-    foreach ($guest as $guest_id) {
-        $guest_info = guestDownload($guest_id);
-        if ($guest_info['is_accepted'] == 0) continue;
-        $pre = $guest_info['sex'] == 0 ? "Pan" : "Pani";
-        $pdf->SetFont('DejaVuSansCondensed', 'B', 13);
-        $pdf->Cell(138, 0, $pre . ' ' . $guest_info['name'] . " " . $guest_info['surname'], 0, 1, "L");
-        $pdf->Ln(1);
-    }
-    $pdf->Ln(8);
+while ($row = $res->fetch_assoc()) {
+    $guest_info = guestDownload($row['id']);
+    $pre = $guest_info['sex'] == 0 ? "Pan" : "Pani";
+    $pdf->SetFont('DejaVuSansCondensed', 'B', 13);
+    $pdf->Cell(138, 0, $pre . ' ' . $guest_info['name'] . " " . $guest_info['surname'], 0, 1, "L");
+    $pdf->Ln(1);
 }
+
 
 ob_end_clean();
 $pdf->Output('lista_gości_potwierdzonych.pdf', 'I');

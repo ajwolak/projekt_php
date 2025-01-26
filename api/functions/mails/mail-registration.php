@@ -68,7 +68,7 @@ function mailRegistration(int $user_id, string $user_hash, string $user_name, st
                 <p>Cieszymy się, że do nas dołączyłeś i postanowiłeś skorzystać z naszych usług!</p>
                 <p>Aby rozpocząć korzystanie z konta, prosimy o jego aktywację. Wystarczy, że klikniesz w poniższy przycisk:</p>
                 <br />
-                <a class="button" href="https://www.' . $_SERVER['SERVER_NAME'] . '/login/?action=activeAccount&id=' . $user_id . '&token=' . urlencode($user_hash) . '">Aktywuj konto </a>
+                <a class="button" href="https://' . $_SERVER['SERVER_NAME'] . '/login/?action=activeAccount&id=' . $user_id . '&token=' . urlencode($user_hash) . '">Aktywuj konto </a>
                 <br />
                 <br />
 
