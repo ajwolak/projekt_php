@@ -27,17 +27,29 @@ $guest_collect = guestCollect($invation_info['event_id'], $invation_info['id']);
             <h3 style="margin-bottom: 8px;"><?= $event_info['name'] ?></h3>
             <p>Potwierdzenie online</p>
         </div>
-        <div class="guest-box">
-            <table>
-                <?php
-                foreach ($guest_collect as $guest_id) {
-                    $guest_info = guestDownload($guest_id);
-                    echo '
+        <?php
+        $today = new DateTime(date("Y-m-d"));
+        $deadline_date = new DateTime($event_info['max_accept_date']);
+        if ($today >= $deadline_date) {
+        ?>
+            <div>
+                <br /><br />
+                <h1 style="text-align:center;">Niestety minął termin potwierdzania zaproszeń online.</h1>
+                <br /><br />
+            </div>
+        <?php } else { ?>
+            <div class="guest-box">
+                <form>
+                    <table>
+                        <?php
+                        foreach ($guest_collect as $guest_id) {
+                            $guest_info = guestDownload($guest_id);
+                            echo '
                     <tr>
                         <td><b>' . $guest_info['name'] . ' ' . $guest_info['surname'] . '</b></td>
                         <td>
                             <div class="global-input-box">
-                                <select>
+                                <select name="select_for_' . $guest_id . '">
                                     <option value="1">Będę na weselu</option>
                                     <option value="0">Nie będzie mnie na weselu</option>
                                 </select>
@@ -45,21 +57,24 @@ $guest_collect = guestCollect($invation_info['event_id'], $invation_info['id']);
                         </td>
                         <td>
                             <div class="global-input-box">
-                                <input type="text" placeholder="Informacja dla organizatorów" autocomplete="off" required/>
+                                <input type="text" placeholder="Informacja dla organizatorów" autocomplete="off" required name="notes_for_' . $guest_id . '" />
                                 <label>Informacja dla organizatorów:</label>
                             </div>
                         </td>
                     </tr>';
-                }
-                ?>
-            </table>
-        </div>
-        <div class="action-box">
-            <div class="button">Potwierdzam</div>
-        </div>
+                        }
+                        ?>
+                    </table>
+                </form>
+                <div class="action-box">
+                    <div class="button" onclick="confirm();">Potwierdzam</div>
+                </div>
+            </div>
+        <?php } ?>
     </div>
 </section>
 
 </body>
+<script src="/src/js/confirmation/script.js?lmod=<?= filemtime($_SERVER['DOCUMENT_ROOT'] . '/src/js/confirmation/script.js') ?>"></script>
 
 </html>
