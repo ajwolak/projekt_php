@@ -21,7 +21,6 @@ async function addInvationToDb() {
     });
     invations.push(invation);
   });
-  console.log(invations);
   const res = await fetchApi(
     "/api/invations/",
     {
@@ -37,7 +36,7 @@ async function addInvationToDb() {
     showAddInvationForm(false);
   } else {
     alert(resJson.message);
-    console.log(resJson.error);
+    console.error(resJson.error);
   }
 }
 
@@ -70,5 +69,26 @@ async function showAddInvationForm(bool) {
     box.innerHTML = await res.text();
   } else {
     box.innerHTML = "";
+  }
+}
+
+async function deleteInvation(id) {
+  const res = await fetchApi(
+    "/api/invations/",
+    {
+      action: "deleteInvation",
+      invationId: id,
+      eventId: paramDownload("eventId"),
+    },
+    "POST"
+  );
+
+  const resJson = await res.json();
+
+  if (resJson.status == 200) {
+    loadInvations();
+  } else {
+    console.error(resJson.error);
+    alert("Błąd przy usuwaniu zaproszenia");
   }
 }

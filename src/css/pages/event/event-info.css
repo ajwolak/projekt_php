@@ -71,10 +71,11 @@
   width: 50%;
   height: auto;
 }
-
+.guest-list .invation-box .actions .action-box:hover .tip,
 .absolute-img-box .absolute-img:hover .tip {
   display: block;
 }
+.guest-list .invation-box .actions .action-box .tip,
 .absolute-img-box .absolute-img .tip {
   display: none;
   position: absolute;
@@ -164,6 +165,24 @@
   display: flex;
   justify-content: space-between;
   margin: 0;
+}
+
+.guest-list .invation-box .actions {
+  display: flex;
+  justify-content: flex-end;
+  column-gap: 20px;
+  width: fit-content;
+}
+.guest-list .invation-box .actions .action-box {
+  width: 23px;
+  height: 23px;
+  cursor: pointer;
+  position: relative;
+}
+
+.guest-list .invation-box .actions .action-box img {
+  width: 100%;
+  overflow: hidden;
 }
 .guest-list .invation-box .header .arrow {
   width: 25px;

@@ -75,4 +75,19 @@ if (isset($_POST['action'])) {
             returnError($th, "Błąd potwierdzania uczestnictwa.");
         }
     }
+
+    if ($_POST['action'] == 'deleteInvation') {
+        try {
+            $sql = "DELETE FROM invation WHERE id = '" . $_POST['invationId'] . "';";
+            $scr = $GLOBALS['link']->prepare($sql);
+            $scr->execute();
+
+            $sql2 = "DELETE FROM invited_guests WHERE  invationId = '" . $_POST['invationId'] . "' AND eventId = '" . $_POST['eventId'] . "';";
+            $scr2 = $GLOBALS['link']->prepare($sql2);
+            $scr2->execute();
+            echo json_encode(["status" => 200]);
+        } catch (\Throwable $th) {
+            returnError($th, 'Błąd przy usuwaniu zaproszenia');
+        }
+    }
 }

@@ -7,8 +7,8 @@ $nav = [
         "img"   => '/src/images/home.svg',
         "label" => "Strona główna"
     ],
-    'event'  => [
-        'path'  => '/events/?list',
+    'events'  => [
+        'path'  => '/events/',
         "img"   => '/src/images/event.png',
         "label" => "Twoje wydarzenia"
     ]
@@ -26,6 +26,10 @@ $nav = [
         foreach ($nav as $key => $item) {
             $active = ('/' . $file_name[1] . '/' == $item['path']) ? 'active-item' : "";
             $activeMark = ('/' . $file_name[1] . '/' == $item['path']) ? 'active-mark' : "";
+
+            if ($item['path'] == '/events/') {
+                $item['path'] .= '?list';
+            }
             echo '
                 <div>
                     <a href="' . $item['path'] . '">                    

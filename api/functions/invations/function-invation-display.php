@@ -14,7 +14,13 @@ foreach (invationsCollect($_GET['eventId'], 'DESC') as $invation_id) {
             <input type="checkbox" name="invation_id_' . $invation_id . '" >
             <div class="header">
                 <h3>Zaproszenie nr ' . ($i++) . '</h3>
-                <div class="arrow"></div>
+                <div class="actions">
+                    <div class="action-box" onclick="deleteInvation(' . $invation_id . ')">
+                        <img src="/src/images/icon-bin-black.png?lmod=' . filemtime($_SERVER['DOCUMENT_ROOT'] . '/src/images/icon-bin-black.png') . '">
+                        <div class="tip">Usuń zaproszenie</div>
+                    </div>
+                    <div class="arrow"></div>
+                </div>
             </div>
             <div class="guest-container">
                 <table>
