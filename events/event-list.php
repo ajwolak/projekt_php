@@ -12,7 +12,7 @@
                     <div class="event-desc"><p><b>Uwagi dodatkowe</b></p><p>' . eventDownload($value)['user_description'] . '</p></div>
                     <div class="event-date"><p><b>Można zaakcpetowac do</b></p><p>' . eventDownload($value)['max_accept_date'] . '</p></div>
                     <div class="event-buttons">
-                        <div>Edytuj</div>
+                        <div onclick="window.location.href=\'/events/?list=add&eventId=' . $value . '\'">Edytuj</div>
                         <div onclick="window.location.href=\'/events/?list=info&eventId=' . $value . '\'">Więcej</div>
                     </div>
                 </div>';

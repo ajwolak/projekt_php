@@ -19,6 +19,6 @@ function locationDownload(int $event_id): array
         "town"              => $row['town'],
         "country"           => $row['country'],
         "name"              => $row['name'],
-        "name"              => $row['name'],
+        "date"              => $row['date'],
     ];
 }
