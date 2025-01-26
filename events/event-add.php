@@ -30,6 +30,65 @@
                 <textarea class="text-area-input" name="descriptionOwn" id="text-area-own"></textarea>
             </div>
         </div>
+        <div id="place-box" class="place">
+            <h3 class="location-title">Lokalizacja 1</h3>
+            <div class="input-box-2">
+                <div>
+                    <label><b>Nazwa:</b></label>
+                    <input
+                        required
+                        name="locationName"
+                        class="date-input"
+                        type="text" />
+                </div>
+                <div>
+                    <label><b>Data:</b></label>
+                    <input
+                        required
+                        name="locationDate"
+                        class="text-input"
+                        type="date" />
+                </div>
+            </div>
+            <div class="input-box-2">
+                <div>
+                    <label><b>Kraj:</b></label>
+                    <input
+                        required
+                        name="country"
+                        class="date-input"
+                        type="text" />
+                </div>
+                <div>
+                    <label><b>Miasto:</b></label>
+                    <input
+                        required
+                        name="name"
+                        class="text-input"
+                        type="text" />
+                </div>
+
+            </div>
+            <div class="input-box-2">
+                <div>
+                    <label><b>Kod pocztowy:</b></label>
+                    <input
+                        required
+                        name="dateMax"
+                        class="date-input"
+                        type="text" />
+                </div>
+                <div>
+                    <label><b>Miejscowość/ulica i numer:</b></label>
+                    <input
+                        required
+                        name="name"
+                        class="text-input"
+                        type="text" />
+                </div>
+
+            </div>
+        </div>
         <input type="hidden" name="action" value="addNewEvent">
         <button
 

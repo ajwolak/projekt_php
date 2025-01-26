@@ -44,11 +44,13 @@
   width: 25%;
   height: 50px;
   border-radius: 12px;
+  padding: 4px;
 }
 .add-event .text-area-input {
   width: 98%;
   border-radius: 12px;
   height: 150px;
+  padding: 4px;
 }
 .add-event .date-input {
   width: 15%;
@@ -58,4 +60,13 @@
 .add-event .form-submit {
   background-color: #2e7dc7;
   color: white;
+}
+.place .location-title {
+  text-align: center;
+}
+.place .input-box-2 div label {
+  width: 300px;
+}
+.place .input-box-2 div input {
+  width: 25%;
 }
