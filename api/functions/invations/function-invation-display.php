@@ -23,7 +23,7 @@ foreach (invationsCollect($_GET['eventId'], 'DESC') as $invation_id) {
                         <th>Email</th>
                         <th>Telefon</th>
                         <th>Twoja notatka</th>
-                        <th>Czy zaakceptował zaproszenie</th>
+                        <th>Zaakceptowano zaproszenie</th>
                         <th>Informacja od gościa</th>
                     </tr>
                 ';

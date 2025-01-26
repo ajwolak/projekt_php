@@ -7,6 +7,7 @@
     require(__DIR__ . '/../../api/functions/guest/function-guest-collect.php');
     require(__DIR__ . '/../../api/functions/guest/function-guest-download.php');
     require(__DIR__ . '/../../api/functions/event/function-event-download.php');
+    require(__DIR__ . '/../../api/functions/invations/function-invation-download.php');
 
     $event_id = $_GET['eventId'] ?? '';
 
@@ -66,7 +67,7 @@
             $pdf->Cell(138, 0, $pre . ' ' . $guest_info['name'] . " " . $guest_info['surname'], 0, 1, "L");
             $pdf->Ln(1);
         }
-        $pdf->write2DBarcode('https://google.pl', 'QRCODE,H', 160, $y_position, 43, 43, $qr_style, 'N');
+        $pdf->write2DBarcode('https://' . $_SERVER['SERVER_NAME'] . '/confirmation/?code=' . invationDownload($invation)['invation_code'], 'QRCODE,H', 160, $y_position, 43, 43, $qr_style, 'N');
         $pdf->Ln(8);
         $pdf->Line($pdf->GetX(), $pdf->GetY(),  190, $pdf->GetY());
     }
