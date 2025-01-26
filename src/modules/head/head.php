@@ -26,6 +26,3 @@
 </head>
 
 <body>
-    <?php
-    require(__DIR__ . '/../popup/global-popup-frame.php');
-    ?>
