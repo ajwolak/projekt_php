@@ -99,6 +99,7 @@ $street = isset($_GET['eventId']) ? locationDownload($_GET['eventId'])['street']
                         name="postCode"
                         class="date-input"
                         type="text"
+                        pattern="^\d{2}-\d{3}$"
                         value="<?= htmlspecialchars($zipCode) ?>" />
                 </div>
                 <div>
