@@ -72,3 +72,24 @@ async function showAddInvationForm(bool) {
     box.innerHTML = "";
   }
 }
+
+async function deleteInvation(id) {
+  const res = fetchApi(
+    "/api/invations/",
+    {
+      action: "deleteInvation",
+      invationId: id,
+      eventId: paramDownload("eventId"),
+    },
+    "POST"
+  );
+
+  const resJson = await res.json();
+
+  if (resJson.status == 200) {
+    loadInvations();
+  } else {
+    console.error(resJson.error);
+    alert("Błąd przy usuwaniu zaproszenia");
+  }
+}
