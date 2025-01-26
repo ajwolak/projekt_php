@@ -1,5 +1,41 @@
-.event-list {
+.event-list .new-event {
+  text-align: center;
+  background-color: #3693eb;
+  color: white;
+  width: calc(100% - 30px);
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 25px;
+  cursor: pointer;
+  position: sticky;
+  top: 0;
 }
-.event-list h1 {
+.event-list .event-container {
+  background-color: white;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: row;
+  padding: 15px;
+  justify-content: space-around;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+.event-list .event-container div {
+  width: 250px;
+}
+.event-list .event-container .event-buttons {
+  display: flex;
+  flex-direction: row;
+}
+.event-list .event-container .event-buttons div {
+  background-color: #2e7dc7;
+  margin: 0 10px;
+  padding: 10px;
+  color: white;
+  align-items: center;
+  cursor: pointer;
+  text-align: center;
+}
+.event-list .event-container h1 {
   text-align: center;
 }

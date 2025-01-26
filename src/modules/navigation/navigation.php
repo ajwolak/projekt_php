@@ -8,7 +8,7 @@ $nav = [
         "label" => "Strona główna"
     ],
     'event'  => [
-        'path'  => '/events/',
+        'path'  => '/events/?list',
         "img"   => '/src/images/event.png',
         "label" => "Twoje wydarzenia"
     ]
