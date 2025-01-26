@@ -36,7 +36,7 @@ foreach (invationsCollect($_GET['eventId'], 'DESC') as $invation_id) {
                 <td>' . $guest_info['phone'] . '</td>
                 <td>' . $guest_info['description'] . '</td>
                 <td>' . ($guest_info['is_accepted'] == 0 ? '<span class="font-color-red">Nie</span>' : '<span class="font-color-green">Tak</span>') . '</td>
-                <td>' . $guest_info['note'] . '</td>
+                <td>' . $guest_info['notes'] . '</td>
             </tr>
         ';
     }

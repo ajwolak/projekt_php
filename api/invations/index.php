@@ -60,4 +60,19 @@ if (isset($_POST['action'])) {
             returnError($th, "Błąd dodawania zaproszenia.");
         }
     }
+
+    if ($_POST['action'] == 'confirmationEvent') {
+        try {
+            $data = json_decode($_POST['form'], true);
+            foreach ($data as $guest) {
+                $sql = "UPDATE invited_guests SET isAccepted = ?, notes = ? WHERE id = ?";
+                $stmt = $link->prepare($sql);
+                $stmt->bind_param("isi", $guest['isAccept'], $guest['notes'], $guest['guest_id']);
+                $stmt->execute();
+            }
+            echo json_encode(['status' => 200]);
+        } catch (\Throwable $th) {
+            returnError($th, "Błąd potwierdzania uczestnictwa.");
+        }
+    }
 }
