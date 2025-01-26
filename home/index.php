@@ -67,44 +67,9 @@ require(__DIR__ . '/../api/functions/event/function-event-download.php');
         </div>
     </section>
 </body>
+<script src="/src/js/home/script.js?lmod=<?= filemtime($_SERVER['DOCUMENT_ROOT'] . '/src/js/home/script.js') ?>"></script>
 <script>
     generateStats(document.querySelector("#eventId").value);
-    async function generateStats(eventId) {
-        document.querySelector(".card_one").onclick = function() {
-            window.location.href = '/pdf/all-invations/?eventId=' + eventId;
-        };
-        document.querySelector(".card_two").onclick = function() {
-            window.location.href = '/pdf/currently-accepted/?eventId=' + eventId;
-        };
-        document.querySelector(".card_three").onclick = function() {
-            window.location.href = '/events/?list=info&eventId=' + eventId;
-        };
-
-        const res = await fetchApi('/api/home/', {
-            action: "getStats",
-            eventId: eventId
-        });
-        const resJson = await res.json();
-
-        if (resJson.status == 200) {
-
-            var options = {
-                chart: {
-                    type: 'donut'
-                },
-                series: [resJson.body.noInfo, resJson.body.accepted, resJson.body.notAccepted],
-                labels: ["Czekają na akceptację", "Zaakceptowane", "Odrzucone"],
-            }
-
-            var chart = new ApexCharts(document.querySelector(".chart-box"), options);
-
-            chart.render();
-
-        } else {
-            console.error(resJson.error);
-            alert("Błąd w statystykach");
-        }
-    }
 </script>
 
 </html>

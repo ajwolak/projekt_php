@@ -14,10 +14,13 @@
   border-radius: 12px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-start;
   flex-wrap: wrap;
   position: relative;
+  flex-direction: row;
+  column-gap: 60px;
+  row-gap: 40px;
 }
 
 .information div p {

@@ -8,7 +8,10 @@ if (!isset($_GET['eventId']) || empty($_GET['eventId'])) {
 }
 
 $event_data = eventDownload($_GET['eventId']);
+$location_data = locationDownload($_GET['eventId']);
 $max_date = new DateTime($event_data['max_accept_date']);
+$event_date = new DateTime($location_data['date']);
+$address = $location_data['street'] . ", " . $location_data['zip_code'] . ' ' . $location_data['town'];
 ?>
 <link rel="stylesheet" href="/src/css/pages/event/event-info.css?lmod=<?= filemtime($_SERVER['DOCUMENT_ROOT'] . '/src/css/pages/event/event-info.css') ?>" />
 <div class="event-info">
@@ -31,6 +34,18 @@ $max_date = new DateTime($event_data['max_accept_date']);
         <div>
             <p>Data akceptacji zaproszeń</p>
             <p><b><?= $max_date->format("d-m-Y") ?></b></p>
+        </div>
+        <div>
+            <p>Data wesela</p>
+            <p><b><?= $event_date->format("d-m-Y") ?></b></p>
+        </div>
+        <div>
+            <p>Adres</p>
+            <p><b><?= $address ?></b></p>
+        </div>
+        <div>
+            <p>Nazwa domu weselnego</p>
+            <p><b><?= $location_data['name'] ?></b></p>
         </div>
         <div class="absolute-img-box">
             <div class="absolute-img" onclick="window.location.href='/events/?list=edit&eventId=<?= $_GET['eventId'] ?>'">

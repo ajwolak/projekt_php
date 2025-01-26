@@ -61,7 +61,7 @@ $street = isset($_GET['eventId']) ? locationDownload($_GET['eventId'])['street']
                         value="<?= htmlspecialchars($locationName) ?>" />
                 </div>
                 <div>
-                    <label><b>Data:</b></label>
+                    <label><b>Data wydarzenia:</b></label>
                     <input
                         required
                         name="locationDate"
